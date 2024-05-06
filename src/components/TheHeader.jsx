@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 import CartButton from "./CartButton";
 
 const Header = styled.header`
-  background-color: yellow;
+  background-color: #00b3ff;
   width: 100%;
 `;
 
@@ -15,6 +15,7 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  margin: 0 auto;
 `;
 
 
