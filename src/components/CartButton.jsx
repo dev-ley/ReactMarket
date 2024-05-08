@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { FaCartShopping } from "react-icons/fa6";
 
-
 const ButtonCart = styled.button`
     font-size: 1.5rem;
     display: flex;
@@ -15,7 +14,7 @@ const ButtonCart = styled.button`
     position: relative;
     margin-left: 20px;
     color: #333;
-`
+`;
 
 const ItensCart = styled.span`
     background-color: red;
@@ -30,7 +29,7 @@ const ItensCart = styled.span`
     display: flex;
     align-items: center;
     justify-content: center;
-`
+`;
 
 const CartButton = () => {
   return (
@@ -41,4 +40,4 @@ const CartButton = () => {
   )
 }
 
-export default CartButton
+export default CartButton;

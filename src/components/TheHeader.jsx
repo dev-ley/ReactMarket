@@ -5,12 +5,12 @@ import SearchBar from "./SearchBar";
 import CartButton from "./CartButton";
 
 const Header = styled.header`
-  background-color: #00b3ff;
+  background-color: #00a5ec;
   width: 100%;
 `;
 
 const Container = styled.div`
-  max-width: 1100px;
+  max-width: 1500px;
   display: flex;
   justify-content: space-between;
   align-items: center;

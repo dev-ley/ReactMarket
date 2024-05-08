@@ -4,8 +4,15 @@ import fetchProducts from '../api/fetchProducts';
 import ProductCard from './ProductCard';
 
 const ProductsContainer = styled.section`
-
-`
+ background-color: #e4e4e4;
+ padding-top: 20px;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-evenly;
+ gap: 15px;
+ max-width: 1500px;
+ margin: 0 auto ;
+`;
 
 const Products = () => {
 
@@ -15,14 +22,14 @@ const Products = () => {
 
         fetchProducts('iphone').then((response) => {
             setProducts(response);
-            console.log(products)
-        });
+
+          });
 
     }, []);
 
   return (
     <ProductsContainer>
-        <ProductCard />
+      { products.map((product) => <ProductCard key={product.id} data={product}/> ) }
      </ProductsContainer>
   )
 }
