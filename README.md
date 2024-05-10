@@ -32,7 +32,7 @@ React Market é um projeto de mercado virtual desenvolvido em React, que utiliza
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue para sugestões ou reportar problemas encontrados.
 
 ## Autor
-Seu Nome - [Link para o seu GitHub](https://github.com/dev-ley)
+Seu Nome - [Wesley Rodrigues](https://github.com/dev-ley)
 
 ## Licença
 Este projeto está licenciado sob a Licença [MIT](https://opensource.org/licenses/MIT).
