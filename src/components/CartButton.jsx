@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { FaCartShopping } from "react-icons/fa6";
 import AppContext from '../context/AppContext';
-import '../index.css'
+import './CartButton.css';
 
 const ButtonCart = styled.button`
 

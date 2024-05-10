@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { BsCartDashFill } from "react-icons/bs";
 import formatCurrency from '../../utils/formatCurrency';
-import AppContext from '../../context/AppContext';
 
 const CartItemSection = styled.section`
     display: flex;
