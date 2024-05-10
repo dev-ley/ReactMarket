@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { IoSearchSharp } from "react-icons/io5";
 import styled from 'styled-components';
+import fetchProducts from '../api/fetchProducts';
+import AppContext from '../context/AppContext';
 
 const FormSearch = styled.form`
     display: flex;
@@ -35,8 +37,20 @@ const SearchButton = styled.button`
 
 const SearchBar = () => {
     const [searchValue, setSearchValue] = useState('')
-  return (
-        <FormSearch>
+    const { setProducts, setLoading } = useContext(AppContext)
+
+
+    const handleSearch = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        const products = await fetchProducts(searchValue);
+        setProducts(products);
+        setLoading(false);
+        setSearchValue('');
+    }
+    return (
+        <FormSearch onSubmit={handleSearch}>
             <SearchInput 
             type="search"
             placeholder="Buscar Produtos"

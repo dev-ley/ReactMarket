@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import fetchProducts from '../api/fetchProducts';
 import ProductCard from './ProductCard';
+import Loading from './Loading';
+import AppContext from '../context/AppContext';
 
 const ProductsContainer = styled.section`
  background-color: #e4e4e4;
- padding-top: 20px;
+ padding: 120px 20px 50px;
  display: flex;
  flex-wrap: wrap;
  justify-content: space-evenly;
@@ -16,22 +18,24 @@ const ProductsContainer = styled.section`
 
 const Products = () => {
 
-    const [products, setProducts] = useState([]);
+    const { products, setProducts, loading, setLoading} = useContext(AppContext)
 
     useEffect(() => {
 
         fetchProducts('iphone').then((response) => {
             setProducts(response);
-
+            setLoading(false);
           });
 
     }, []);
 
   return (
-    <ProductsContainer>
-      { products.map((product) => <ProductCard key={product.id} data={product}/> ) }
-     </ProductsContainer>
-  )
-}
+    (loading && <Loading /> || (  
+      <ProductsContainer>
+        { products.map((product) => <ProductCard key={product.id} data={product}/> ) }
+      </ProductsContainer>)) 
+  
+  );
+};
 
 export default Products

@@ -1,19 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { FaCartShopping } from "react-icons/fa6";
+import AppContext from '../context/AppContext';
+import '../index.css'
 
 const ButtonCart = styled.button`
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    border: none;
-    background: none;
-    cursor: pointer;
-    position: relative;
-    margin-left: 20px;
-    color: #333;
+
 `;
 
 const ItensCart = styled.span`
@@ -32,10 +24,18 @@ const ItensCart = styled.span`
 `;
 
 const CartButton = () => {
+
+  const { cartItems, isCartVisible, setIsCartVisible } = useContext(AppContext);
+
   return (
-    <ButtonCart>
+    <ButtonCart
+    type="button"
+    className="cart__button"
+    onClick={ () => setIsCartVisible(!isCartVisible) }
+
+    >
         <FaCartShopping />
-        <ItensCart>1</ItensCart>
+        { cartItems.length > 0 && <span className="cart-status">{cartItems.length}</span> }
     </ButtonCart>
   )
 }

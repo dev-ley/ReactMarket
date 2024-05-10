@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { FaCartPlus } from "react-icons/fa6";
 import formatCurrency from '../utils/formatCurrency';
+import AppContext from '../context/AppContext';
 
 const ProductCardContainer = styled.section`
   width: 100%;
@@ -10,7 +11,7 @@ const ProductCardContainer = styled.section`
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  margin: 10px auto;
+  margin: 0px auto;
   position: relative;
   transition: box-shadow 0.3s ease; 
   
@@ -51,7 +52,7 @@ const AddCart = styled.button`
   right: 0;
   width: 45px;
   height: 45px;
-  margin: 12px 12px;
+  margin: 12px 15px;
   color: blue;
   display: none;
   align-items: center;
@@ -68,6 +69,10 @@ const AddCart = styled.button`
 
 const ProductCard = ({ data }) => {
   const { title, thumbnail, price } = data;
+  const { cartItems, setCartItems } = useContext(AppContext);
+
+  const handleAddCart = () => setCartItems([...cartItems, data]);
+  
   return (
     <ProductCardContainer>
      <CardImg src={thumbnail.replace(/\w\.jpg/gi, 'W.jpg')} alt="product" />
@@ -75,7 +80,12 @@ const ProductCard = ({ data }) => {
             <CardPrice>{formatCurrency(price, 'BRL')}</CardPrice>
             <CardTitle> {title} </CardTitle>
         </CardInfo>
-        <AddCart><FaCartPlus/></AddCart>
+        <AddCart 
+          type='button'
+          onClick={handleAddCart}
+        >
+          <FaCartPlus/>
+        </AddCart>
     </ProductCardContainer>
   )
 }
